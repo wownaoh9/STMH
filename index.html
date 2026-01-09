@@ -40,6 +40,7 @@
       <li><a href="#emotional_samples_onZeroShot">Unseen Speaker Emotional Samples</a></li>
       <li><a href="#emotion_intensity_samples_onESD">Emotional Entensity Control Samples</a></li>
       <li><a href="#ablation_study">Ablation Study Samples</a></li>
+      <li><a href="#STMH-REF and STMH-ID">Emotional Samples for STMH-REF and STMH-ID</a></li>
     </ol>
 
     <br><br>
@@ -176,7 +177,7 @@
       <tbody>
         <tr>
           <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Angry</td>
-          <td style="text-align: left" colspan=6>Text: 我们两合不来，还经常吵架。</td>
+          <td style="text-align: left" colspan=6>Text: 我们俩合不来，还经常吵架。</td>
         </tr>
         <tr>
           <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0009_000365.wav" controls="" preload=""></audio>
@@ -623,7 +624,7 @@
       <tbody>
         <tr>
           <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Angry</td>
-          <td style="text-align: left" colspan=6>Text: 我们两合不来，还经常吵架。</td>
+          <td style="text-align: left" colspan=6>Text: 我们俩合不来，还经常吵架。</td>
         </tr>
         <tr>
           <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0009_000365.wav" controls="" preload=""></audio>
@@ -696,6 +697,87 @@
           </td>
           <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woMCD/还要叫她起床，怎么会不早起。/0010/0007/Happy.wav" controls="" preload=""></audio>
           </td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>7. Emotional Samples for STMH-REF and STMH-ID<a name="STMH-REF and STMH-ID"></a>
+    </h2>
+
+    </p>
+    <center><img src='fig/ref_and_id.png'></center>
+    <div align="center"><b>Fig.2</b> Mel-spectrograms of STMH-REF and STMH-ID.</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: center"><strong>Emotion</strong></th>
+          <th style="text-align: center"><strong>Target speaker</strong></th>
+          <th style="text-align: center"><strong>Target emotion</strong></th>
+          <th style="text-align: center"><strong>STMH-REF(Ours)</strong></th>
+          <th style="text-align: center"><strong>STMH-ID(Ours)</strong></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Angry</td>
+          <td style="text-align: left" colspan=6>Text: 我们俩合不来，还经常吵架。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0007_000717.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Angry_0007_000676.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/fig_3/REF/[000104][0009_Angry_Chinese_000455][P]我们俩合不来,还经常吵架..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/fig_3/ID/[000104][0009_Angry_Chinese_000455][P]我们俩合不来,还经常吵架..wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Happy</td>
+          <td style="text-align: left" colspan=6>Text: 我们俩合不来，还经常吵架。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0007_000717.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Happy_0007_001026.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/fig_3/REF/[000104][0009_Happy_Chinese_000805][P]我们俩合不来,还经常吵架..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/fig_3/ID/[000104][0009_Happy_Chinese_000805][P]我们俩合不来,还经常吵架..wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2> Surprise</td>
+          <td style="text-align: left" colspan=6>Text: 我们俩合不来，还经常吵架。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0007_000717.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Surprise_0007_001726.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/fig_3/REF/[000104][0009_Surprise_Chinese_001505][P]我们俩合不来,还经常吵架..wav" controls="" preload=""></audio> 
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/fig_3/ID/[000104][0009_Surprise_Chinese_001505][P]我们俩合不来,还经常吵架..wav" controls="" preload=""></audio> 
+          </td>
+        </tr>
+        
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2> Sad</td>
+          <td style="text-align: left" colspan=6>Text: 我们俩合不来，还经常吵架。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0007_000717.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Sad_0007_001376.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/fig_3/REF/[000104][0009_Sad_Chinese_001155][P]我们俩合不来,还经常吵架..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/fig_3/ID/[000104][0009_Sad_Chinese_001155][P]我们俩合不来,还经常吵架..wav" controls="" preload=""></audio>
+
           </td>
         </tr>
       </tbody>
