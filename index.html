@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+  <title>Demo for paper:STMH</title>
+  <meta name="generator" content="Jekyll v3.9.0">
+  <meta property="og:title" content="TODO: title">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+  <section class="page-header">
+
+
+
+  </section>
+
+  <section class="main-content">
+    <h1 id="">
+      <center>STMH: Speech-Text Modality Harmonization for Controllable Emotional Speech Synthesis With Mel-derivative Augmented Conditional Adversarial Training</center>
+    </h1>
+
+
+    <h2>0. Contents</h2>
+    <ol>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#emotional_samples_onDOE">Emotional Samples on the DOE emotional speech dataset</a></li>
+      <li><a href="#emotional_samples_onESD">Emotional Samples on the ESD emotional speech dataset</a></li>
+    </ol>
+
+    <br><br>
+    <h2 id="abstract">1. Abstract<a name="abstract"></a></h2>
+    <p> Recent advancements in text-to-speech (TTS) have significantly improved emotional speech synthesis.
+    However, many existing approaches capture only averaged emotional representations, thereby failing to reflect the inherently dynamic nature of speech prosody. 
+    To address these issues, we propose STMH, a novel framework designed to enhance the expressiveness and controllability of emotional speech synthesis.
+    STMH integrates an emotion condition module, which captures global emotion representations and allows simultaneous control over both emotion category and intensity, 
+    as well as an emotion harmonization module to harmonization the condition mismatch between the training and inference.
+    In addition, a mel-derivative augmented conditional adversarial framework is used to enhance emotional consistency and improve synthesis quality.
+    Experimental results demonstrate that our approach surpasses state-of-the-art methods in terms of emotional expressiveness and controllability. 
+    </p>
+    <center><img src='fig/model_arch.jpg'></center>
+    <div align="center"><b>Fig.1</b> The architecture of STMH.</div>
+
+    <br><br>
+
+    <h2>2. Emotional Samples on the DOE emotional speech dataset<a name="emotional_samples_onDOE"></a>
+    </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: center"><strong>Emotion</strong></th>
+          <th style="text-align: center"><strong>Target speaker</strong></th>
+          <th style="text-align: center"><strong>Target emotion</strong></th>
+          <th style="text-align: center"><strong>STMH-REF(Ours)</strong></th>
+          <th style="text-align: center"><strong>STMH-ID(Ours)</strong></th>
+          <th style="text-align: center"><strong>iEmoTTS</strong></th>
+          <th style="text-align: center"><strong>METTS</strong></th>
+          <th style="text-align: center"><strong>CMETTS</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Angry</td>
+          <td style="text-align: left" colspan=6>Text: 听你的口气好像并不知罪，甚至有点儿委屈，是吗。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/DOE/target_speaker_DOE/s1.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/reference_speehch_DOE/angry_s2.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/STMH-REF-DOE/听你的口气，好像并不知罪，甚至有点儿委屈，是吗/001/002/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/STMH-ID-DOE/听你的口气，好像并不知罪，甚至有点儿委屈，是吗/001/002/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/iEmoTTS-DOE/听你的口气，好像并不知罪，甚至有点儿委屈，是吗/001/002/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/METTS-DOE/听你的口气，好像并不知罪，甚至有点儿委屈，是吗/001/002/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/CME-DOE/angry_s1.wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Happy</td>
+          <td style="text-align: left" colspan=6>Text: 元甲，你这次比武已经让霍家拳名满南京城了。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/DOE/target_speaker_DOE/s2.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/reference_speehch_DOE/happy_s1.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/STMH-REF-DOE/元甲，你这次比武已经让霍家拳名满南京城了/002/001/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/STMH-ID-DOE/元甲，你这次比武已经让霍家拳名满南京城了/002/001/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/iEmoTTS-DOE/元甲，你这次比武已经让霍家拳名满南京城了/002/001/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/METTS-DOE/元甲，你这次比武已经让霍家拳名满南京城了/002/001/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/CME-DOE/happy_s2.wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Sad</td>
+          <td style="text-align: left" colspan=6>Text: 喂，你别哭，别哭啊，都是我不好</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/DOE/target_speaker_DOE/s3.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/reference_speehch_DOE/sad_s3.wav" controls="" preload=""></audio></td>
+          <td style="text-align: left"><audio src="samples/DOE/STMH-REF-DOE/喂，你别哭，,别哭啊，都是我不好/004/003/Sad_1.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/STMH-ID-DOE/喂，你别哭，别哭啊，都是我不好/004/003/Sad.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/iEmoTTS-DOE/喂，你别哭，,别哭啊，都是我不好/004/003/Sad.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/METTS-DOE/喂，你别哭，,别哭啊，都是我不好/004/003/Sad.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/CME-DOE/sad_s4.wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Surprise</td>
+          <td style="text-align: left" colspan=6>Text: 营长，怎么到现在还没有动静？</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/DOE/target_speaker_DOE/s4.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/reference_speehch_DOE/surprise_s4.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/STMH-REF-DOE/营长，怎么到现在还没有动静？/003/004/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/STMH-ID-DOE/营长，怎么到现在还没有动静？/003/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/iEmoTTS-DOE/营长，怎么到现在还没有动静？/003/004/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/METTS-DOE/营长，怎么到现在还没有动静？/003/004/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/CME-DOE/surprise_s3.wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <h2>3. Emotional Samples on the ESD emotional speech dataset<a name="emotional_samples_onESD"></a>
+    </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: center"><strong>Emotion</strong></th>
+          <th style="text-align: center"><strong>Target speaker</strong></th>
+          <th style="text-align: center"><strong>Target emotion</strong></th>
+          <th style="text-align: center"><strong>STMH-REF(Ours)</strong></th>
+          <th style="text-align: center"><strong>STMH-ID(Ours)</strong></th>
+          <th style="text-align: center"><strong>iEmoTTS</strong></th>
+          <th style="text-align: center"><strong>METTS</strong></th>
+          <th style="text-align: center"><strong>CMETTS</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Angry</td>
+          <td style="text-align: left" colspan=6>Text: 我们两合不来，还经常吵架。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0009_000365.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Angry_0007_000676.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-REF-esdzh/0009/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-ID-esdzh/0009/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/iEmoTTS-esdzh/我们两合不来，还经常吵架/0009/0007/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/METTS-esdzh/我们两合不来，还经常吵架/0009/0007/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/CME-esdzh/我们两合不来，还经常吵架/0009/0007/Angry.wav" controls="" preload=""></audio>
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Happy</td>
+          <td style="text-align: left" colspan=6>Text: 打远一看，它们的确很是美丽。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0004_000924.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Happy_0007_001026.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-REF-esdzh/0004/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-ID-esdzh/0004/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/iEmoTTS-esdzh/打远一看，它们的确很是美丽/0004/0007/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/METTS-esdzh/打远一看，它们的确很是美丽/0004/0007/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/CME-esdzh/打远一看，它们的确很是美丽/0004/0007/Happy.wav" controls="" preload=""></audio>
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Neutral</td>
+          <td style="text-align: left" colspan=6>Text: 听起来你们玩得也很开心。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0003_000002.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Neutral_0007_000326.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-REF-esdzh/0003/Neutral.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/DOE/STMH-ID-DOE/营长，怎么到现在还没有动静？/003/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/iEmoTTS-esdzh/听起来你们玩得也很开心。/0003/0007/Neutral.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/METTS-esdzh/听起来你们玩得也很开心。/0003/0007/Neutral.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/CME-esdzh/听起来你们玩得也很开心。/0003/0007/Neutral.wav" controls="" preload=""></audio>
+          </td>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2> Sad</td>
+          <td style="text-align: left" colspan=6>Text: 别问了！说多了都是眼泪！</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0007_000717.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Sad_0007_001376.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-REF-esdzh/0007/Sad.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-ID-esdzh/0007/Sad.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/iEmoTTS-esdzh/别问了！说多了都是眼泪！/0007/0007/Sad.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/METTS-esdzh/别问了！说多了都是眼泪！/0007/0007/Sad.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/CME-esdzh/别问了！说多了都是眼泪！/0007/0007/Sad.wav" controls="" preload=""></audio>
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2> Surprise</td>
+          <td style="text-align: left" colspan=6>Text: 还要叫她起床，怎么会不早起。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0010_001606.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Surprise_0007_001726.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-REF-esdzh/0010/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-ID-esdzh/0010/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/iEmoTTS-esdzh/还要叫她起床，怎么会不早起。/0010/0007/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/METTS-esdzh/还要叫她起床，怎么会不早起。/0010/0007/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/CME-esdzh/还要叫她起床，怎么会不早起。/0010/0007/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. Unseen Speaker Emotional Samples on the ESD emotional speech dataset<a name="emotional_samples_onZeroShot"></a>
+    </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: center"><strong>Emotion</strong></th>
+          <th style="text-align: center"><strong>Target speaker</strong></th>
+          <th style="text-align: center"><strong>Target emotion</strong></th>
+          <th style="text-align: center"><strong>STMH-REF(Ours)</strong></th>
+          <th style="text-align: center"><strong>STMH-ID(Ours)</strong></th>
+          <th style="text-align: center"><strong>iEmoTTS</strong></th>
+          <th style="text-align: center"><strong>METTS</strong></th>
+          <th style="text-align: center"><strong>CMETTS</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Angry</td>
+          <td style="text-align: left" colspan=6>Text: 是的,他很狡猾,经常陷害他人</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples\zeroshot\ref_spk\0001_000001.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Angry_0007_000676.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\stmh-ref\[001308][2001_Angry_Chinese_063597][P]是的,他很狡猾,经常陷害他人..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\stmh-id\[001308][2001_Angry_Chinese_063597][P]是的,他很狡猾,经常陷害他人..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\iemotts\[001308][2001_Angry_Chinese_063597][P]是的,他很狡猾,经常陷害他人..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\metts\[001308][2001_Angry_Chinese_063597][P]是的,他很狡猾,经常陷害他人..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\cmetts\[001308][2001_Angry_Chinese_063597][P]是的,他很狡猾,经常陷害他人..wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Happy</td>
+          <td style="text-align: left" colspan=6>Text: 我和我的妻子盼望着和您见面</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples\zeroshot\ref_spk\0006_000701.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Happy_0007_001026.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\stmh-ref\[003419][2006_Happy_Chinese_072708][P]我和我的妻子盼望着和您见面..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\stmh-id\[003419][2006_Happy_Chinese_072708][P]我和我的妻子盼望着和您见面..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\iemotts\[003419][2006_Happy_Chinese_072708][P]我和我的妻子盼望着和您见面..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\metts\[003419][2006_Happy_Chinese_072708][P]我和我的妻子盼望着和您见面..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\cmetts\[003419][2006_Happy_Chinese_072708][P]我和我的妻子盼望着和您见面..wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Sad</td>
+          <td style="text-align: left" colspan=6>Text: 其实我们前天已经分手了</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples\zeroshot\ref_spk\0001_000001.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Sad_0007_001376.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\stmh-ref\[002147][2001_Sad_Chinese_064436][P]其实我们前天已经分手了..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\stmh-id\[002147][2001_Sad_Chinese_064436][P]其实我们前天已经分手了..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\iemotts\[002147][2001_Sad_Chinese_064436][P]其实我们前天已经分手了..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\metts\[002147][2001_Sad_Chinese_064436][P]其实我们前天已经分手了..wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\cmetts\[002147][2001_Sad_Chinese_064436][P]其实我们前天已经分手了..wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Surprise</td>
+          <td style="text-align: left" colspan=6>Text: 听起来很厉害的样子!</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples\zeroshot\ref_spk\0006_000701.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Surprise_0007_001726.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\stmh-ref\[004346][2006_Surprise_Chinese_073635][P]听起来很厉害的样子!.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\stmh-id\[004346][2006_Surprise_Chinese_073635][P]听起来很厉害的样子!.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\iemotts\[004346][2006_Surprise_Chinese_073635][P]听起来很厉害的样子!.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\metts\[004346][2006_Surprise_Chinese_073635][P]听起来很厉害的样子!.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\zeroshot\cmetts\[004346][2006_Surprise_Chinese_073635][P]听起来很厉害的样子!.wav" controls="" preload=""></audio>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <h2>
+      5. Emotion intensity control on the ESD emotional speech dataset
+      <a name="emotional_samples_onESD"></a>
+    </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:center">Emotion</th>
+          <th style="text-align:center">Intensity</th>
+          <th style="text-align:center">Target speaker</th>
+          <th style="text-align:center">Target emotion</th>
+          <th style="text-align:center">STMH-REF (Ours)</th>
+          <!-- <th style="text-align:center">iEmoTTS</th>
+          <th style="text-align:center">METTS</th>
+          <th style="text-align:center">CMETTS</th>
+          <th style="text-align:center">SSME</th>
+          <th style="text-align:center">HEPC</th> -->
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <!-- Text -->
+        <tr>
+          <td></td>
+          <td></td>
+          <td colspan="2" style="text-align:left">
+            Text: 听你的口气好像并不知罪，甚至有点儿委屈，是吗
+          </td>
+          <td colspan="6"></td>
+        </tr>
+
+        <!-- ================= Angry ================= -->
+        <tr>
+          <td rowspan="3" style="text-align:center; white-space:nowrap;">Angry</td>
+          <td style="text-align:center">Weak</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Angry_weak.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Angry_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Angry_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Angry_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Angry_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Angry_weak.wav" controls></audio></td> -->
+        </tr>
+
+        <tr>
+          <td style="text-align:center">Medium</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Angry_medium.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Angry_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Angry_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Angry_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Angry_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Angry_medium.wav" controls></audio></td> -->
+        </tr>
+
+        <tr>
+          <td style="text-align:center">Strong</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Angry_strong.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Angry_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Angry_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Angry_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Angry_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Angry_strong.wav" controls></audio></td> -->
+        </tr>
+
+        <!-- Text -->
+        <tr>
+          <td></td>
+          <td></td>
+          <td colspan="2" style="text-align:left">
+            Text: 听你的口气好像并不知罪，甚至有点儿委屈，是吗
+          </td>
+          <td colspan="6"></td>
+        </tr>
+      
+        <!-- ================= Happy ================= -->
+        <tr>
+          <td rowspan="3" style="text-align:center; white-space:nowrap;">Happy</td>
+          <td style="text-align:center">Weak</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Happy_weak.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Happy_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Happy_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Happy_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Happy_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Happy_weak.wav" controls></audio></td> -->
+        </tr>
+
+        <tr>
+          <td style="text-align:center">Medium</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Happy_medium.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Happy_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Happy_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Happy_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Happy_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Happy_medium.wav" controls></audio></td> -->
+        </tr>
+
+        <tr>
+          <td style="text-align:center">Strong</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Happy_strong.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Happy_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Happy_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Happy_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Happy_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Happy_strong.wav" controls></audio></td> -->
+        </tr>
+
+
+        <!-- Text -->
+        <tr>
+          <td></td>
+          <td></td>
+          <td colspan="2" style="text-align:left">
+            Text: 我很想和你在一起，但是我很怕你会拒绝我
+          </td>
+          <td colspan="6"></td>
+        </tr>
+
+        <!-- ================= Sad ================= -->
+        <tr>
+          <td rowspan="3" style="text-align:center; white-space:nowrap;">Sad</td>
+          <td style="text-align:center">Weak</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Sad_weak.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Sad_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Sad_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Sad_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Sad_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Sad_weak.wav" controls></audio></td> -->
+        </tr>
+
+        <tr>
+          <td style="text-align:center">Medium</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Sad_medium.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Sad_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Sad_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Sad_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Sad_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Sad_medium.wav" controls></audio></td> -->
+        </tr>
+
+        <tr>
+          <td style="text-align:center">Strong</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Sad_strong.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Sad_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Sad_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Sad_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Sad_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Sad_strong.wav" controls></audio></td> -->
+        </tr>
+
+        <!-- Text -->
+        <tr>
+          <td></td>
+          <td></td>
+          <td colspan="2" style="text-align:left">
+            Text: 我很想和你在一起，但是我很怕你会拒绝我
+          </td>
+          <td colspan="6"></td>
+        </tr>
+
+        <!-- ================= Surprise ================= -->
+        <tr>
+          <td rowspan="3" style="text-align:center; white-space:nowrap;">Surprise</td>
+          <td style="text-align:center">Weak</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Surprise_weak.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Surprise_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Surprise_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Surprise_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Surprise_weak.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Surprise_weak.wav" controls></audio></td> -->
+        </tr>
+
+        <tr>
+          <td style="text-align:center">Medium</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Surprise_medium.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Surprise_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Surprise_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Surprise_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Surprise_medium.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Surprise_medium.wav" controls></audio></td> -->
+        </tr>
+
+        <tr>
+          <td style="text-align:center">Strong</td>
+          <td></td>
+          <td></td>
+          <td><audio src="samples/esdzh/STMH-REF-esdzh/0009/Surprise_strong.wav" controls></audio></td>
+          <!-- <td><audio src="samples/esdzh/iEmoTTS/Surprise_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/METTS/Surprise_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/CMETTS/Surprise_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/SSME/Surprise_strong.wav" controls></audio></td>
+          <td><audio src="samples/esdzh/HEPC/Surprise_strong.wav" controls></audio></td> -->
+        </tr>
+
+      </tbody>
+    </table>
+
+
+
+    <h2>6. Ablation Study of STMH on the ESD Emotional Speech Dataset<a name="emotional_samples_onESD"></a>
+    </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: center"><strong>Emotion</strong></th>
+          <th style="text-align: center"><strong>Target speaker</strong></th>
+          <th style="text-align: center"><strong>Target emotion</strong></th>
+          <th style="text-align: center"><strong>STMH-REF(Ours)</strong></th>
+          <th style="text-align: center"><strong>w/o EC</strong></th>
+          <th style="text-align: center"><strong>w/o MH</strong></th>
+          <th style="text-align: center"><strong>w/o MA&C</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Angry</td>
+          <td style="text-align: left" colspan=6>Text: 我们两合不来，还经常吵架。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0009_000365.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Angry_0007_000676.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-REF-esdzh/0009/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woCG/我们两合不来，还经常吵架/0009/0007/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woFG/我们两合不来，还经常吵架/0009/0007/Angry.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woMCD/我们两合不来，还经常吵架/0009/0007/Angry.wav" controls="" preload=""></audio>
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2>Happy</td>
+          <td style="text-align: left" colspan=6>Text: 听起来你们玩得也很开心。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0007_000717.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Happy_0007_001026.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\esdzh\STMH-REF-esdzh\0007\Happy_1.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woCG/听起来你们玩得也很开心。/0007/0007/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woFG/听起来你们玩得也很开心。/0007/0007/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woMCD/听起来你们玩得也很开心。/0007/0007/Happy.wav" controls="" preload=""></audio>
+          </td>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2> Sad</td>
+          <td style="text-align: left" colspan=6>Text: 我们两合不来，还经常吵架</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0008_001054.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Sad_0007_001376.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\esdzh\STMH-REF-esdzh\0008\Sad_1.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woCG/我们两合不来，还经常吵架/0008/0007/Sad.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woFG/我们两合不来，还经常吵架/0008/0007/Sad.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples\esdzh\ablation\esdzh-woMCD\我们两合不来，还经常吵架\0008\0007\Sad.wav" controls="" preload=""></audio>
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; word-break: keep-all; white-space: nowrap;" rowspan=2> Surprise</td>
+          <td style="text-align: left" colspan=6>Text: 还要叫她起床，怎么会不早起。</td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><audio src="samples/esdzh/target_speaker/0010_001606.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/reference_speech/Surprise_0007_001726.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/STMH-REF-esdzh/0010/Surprise.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woCG/还要叫她起床，怎么会不早起。/0010/0007/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woFG/还要叫她起床，怎么会不早起。/0010/0007/Happy.wav" controls="" preload=""></audio>
+          </td>
+          <td style="text-align: left"><audio src="samples/esdzh/ablation/esdzh-woMCD/还要叫她起床，怎么会不早起。/0010/0007/Happy.wav" controls="" preload=""></audio>
+          </td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
